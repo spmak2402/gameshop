@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+
+    <style>
+        body{
+
+            background-image: ;
+            background-image: url("gameshop.jpg");
+        }
+    </style>
+</head>
+<body>
+    <h1 align = 'center'>Index Page</h1>
+
+    {% if request.user.is_authenticated %}
+
+        <h3 align ="center"><a href="/logout">Logout</a></h3>
+
+    {% else %}
+
+        <h3 align = 'center'><a href="/register">Register</a></h3>
+
+        <h3 align = 'center'><a href="/login">Login</a></h3>
+
+    {% endif %}
+
+
+
+    {% if request.user.is_superuser %}
+
+        admin
+
+    {% elif request.user.is_staff %}
+
+
+        <h3 align = 'center'>Staff Login</h3>
+
+        <h3 align = 'center'><a href="/create_product">Add Product</a></h3>
+
+        <h3 align = 'center'><a href="/read_product">Read Product</a></h3>
+
+        <h3 align = 'center'><a href="/readcart">Show Cart</a></h3>
+
+        <h3 align = 'center'><a href="/read_orders">Show Orders</a></h3>
+
+    {% else %}
+
+        <h3 align = 'center'><a href="/read_product">Read Product</a></h3>
+
+        <h3 align = 'center'><a href="/readcart">Show Cart</a></h3>
+
+        <h3 align = 'center'><a href="/read_orders">Show Orders</a></h3>
+
+
+    {% endif %}
+
+
+
+
+    
+
+
+    <!-- <h3 align = 'center'><a href="/read_product">Read Product</a></h3> -->
+
+</body>
+</html>
